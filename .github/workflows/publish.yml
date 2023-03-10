@@ -11,7 +11,7 @@ with:
 registry: ghcr.io
 username: ${{ secrets.REPO_USERNAME }}
 password: ${{ secrets.REPO_PASSWORD }}
-- name: Build the tinyurl-docker image
+- name: Build tinyurl-docker image
 run: |
        docker build . --tag ghcr.io/neiltucker/tinyurl-docker-gcr:latest
        docker run ghcr.io/neiltucker/tinyurl-docker-gcr:latest
