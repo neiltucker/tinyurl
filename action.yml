@@ -1,0 +1,22 @@
+name: publish
+on: [push]
+jobs:
+  publish-tinyurl-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write    
+    
+    steps:
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build tinyurl-docker image
+        run: |
+               docker build . --tag ghcr.io/neiltucker/tinyurl-docker-gcr:latest 
+               docker run ghcr.io/neiltucker/tinyurl-docker-gcr:latest
+               docker push ghcr.io/neiltucker/tinyurl-docker-gcr:latest
