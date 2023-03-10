@@ -10,4 +10,4 @@ def shortenurl(name):
 
 app = gr.Interface(fn=shortenurl, inputs="text", outputs="text")
 
-app.launch()  
+app.launch(server_name="0.0.0.0", server_port=80)   
