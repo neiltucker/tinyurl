@@ -9,8 +9,8 @@ steps:
 uses: docker/login-action@v1
 with:
 registry: ghcr.io
-username: ${{ github.actor }}
-password: ${{ secrets.GITHUB_TOKEN }}
+username: ${{ secrets.REPO_USERNAME }}
+password: ${{ secrets.REPO_PASSWORD }}
 - name: Build the tinyurl-docker image
 run: |
        docker build . --tag ghcr.io/neiltucker/tinyurl-docker-gcr:latest
