@@ -17,6 +17,6 @@ jobs:
 
       - name: Build tinyurl-docker image
         run: |
-               docker build . --tag ghcr.io/neiltucker/tinyurl-docker-gcr:latest --file ./Dockerfile
+               docker build . --tag ghcr.io/neiltucker/tinyurl-docker-gcr:latest --file neiltucker/tinyurl/Dockerfile
                docker run ghcr.io/neiltucker/tinyurl-docker-gcr:latest
                docker push ghcr.io/neiltucker/tinyurl-docker-gcr:latest
